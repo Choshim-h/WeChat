@@ -213,5 +213,10 @@ const vm = new Vue({
                 text: "账号绑定提醒"
             }
         ]
+    },
+    methods:{
+        focus() {
+            
+        }
     }
 })
