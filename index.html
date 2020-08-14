@@ -11,6 +11,7 @@
 
 <body>
     <div id="wrapper">
+        <!-- 导航栏 -->
         <div id="nav" class="box">
             <div class="poto">
                 <img v-bind:src="src" alt="">
@@ -22,8 +23,11 @@
             </ul>
             <span v-bind:title="lot">{{lot}}</span>
         </div>
+
+        <!-- 联系人列表 -->
         <div id="list">
             <div class="left">
+                <!-- 搜索栏 -->
                 <div class="top box">
                     <div class="seach">
                         <input type="text" v-model='search' @input='handleSearch' placeholder="搜索">
@@ -32,6 +36,7 @@
 
                     <span v-bind:title="tit">+</span>
                 </div>
+                
                 <div class="list_text">
                     <ul>
                         <li class="tel" v-for="(item, index) in alist" @click="whoIndex = index" :key='"a" + index + Math.random()'>
@@ -40,12 +45,12 @@
                                 <p>{{item.name}}</p>
                                 <p>{{item.text}}</p>
                             </div>
-                            <div id="conter">
+                            <div id="conter"  v-show='index === whoIndex'>
                                 <div class="conter_name">
                                     <p>{{item.name}}</p>
                                     <span>{{item.icon}}</span>
                                 </div>
-                                <div v-show='index === whoIndex'>
+                                <div>
                                     <div class="text">
                                         <div v-for='chart in item.content' :key='"b" + index + Math.random()'>{{ chart.chart }}</div>
                                     </div>
